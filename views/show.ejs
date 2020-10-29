@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<head>
-  <title>Showtos</title>
-</head>
-<body>
+<&- include('./partials/header.ejs') %>
+
   <h1>Welcome to Showtows' Show Page!!</h1>
   <h3>Showtows</h3>
-  <p>Here is a picture: <%= photo[<%=0%>] %></p>
+  <p>Here is a picture: <%= photoList[<%=i%>] %></p>
   <a href="/photos">Back to Index</a>
-</body>
-</html>
+  
+  
+  <%- include('./partials/footer.ejs') %>
+

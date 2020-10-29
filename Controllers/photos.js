@@ -1,72 +1,47 @@
 const express = require('express')
-const mongoose = require('mongoose')
-const methodOverride  = require('method-override')
-// const session = require('express-session') // only needed IF you are using sessions
-const bodyParser = require('body-parser')
-require('dotenv').config()
+const router = express.Router()
+const photos = require('./models/photoModel.js')
 
-const app = express()
-
-
-const PORT = process.env.PORT
-
-
-//-----------------
-//Database
-//________________
-
-const mongodbURI = process.env.MONGODBURI
-
-//Connect to Mongo
-mongoose.connect(mongodbURI, { useNewUrlParser: true, useUnifiedTopology: true}).then(() => console.log('Database Connected Successfully', mongodbURI)).catch(err => console.log())
-
-// include the model
-const photos = require('./models/photos.js')
-console.log(photos)
-
-// Middleware 
-Router.use((req, res, next) => {
-	console.log('I run for all routes');
-	next();
-});
 
 //Routes:
-// to index
-Router.get('/photos/', (req, res) => {
-	res.render('/index.ejs', {
-		photoList: photos
-	})
-})
 
-// show photo
-Router.get('/photos/:indexOfPhotos', (req, res) => {
-	res.render('show.ejs', {
-		photo: photos[req.params.indexOfPhotos],
-	})
-})
-	
 // new photo
-Router.get('/photos/new', (req, res) => {
-	res.render('/new.ejs', {photo})
+router.get('/new', (req, res) => {
+	res.render('/new.ejs')
 })
 
-// post photo
-Router.post('/photos', (req, res) => {
-	console.log('Create route accessed!')
-    console.log('Req.body is: ', req.body)
-	console.log(req.body)
-	res.send(req.body)
+// to index
+router.post('/', (req, res) => {
+	Photo.create(req.body, (error, uploadedPhoto) => {
+		res.redirect('/photos')
+	})
+})
 
+router.get('/', (req, res) => {
+	Photo.find({}, (error, photoList) => {
+		res.render('index.ejs', {
+			photos: photoList
+		})
+	})
+})
+router.get('/', (req, res) => {
+	Photo.findById(req.params.id, (err, uploadedPhoto) => {
+		res.render('show.ejs', {
+			photo: uploadedPhoto
+		})
+	})
 })
 
 
-
-
-
-
-
-
-
-Router.listen(PORT, () => {
-	console.log(`listening on port ${PORT}`)
+// delete photo
+router.delete('/:id', (req, res) => {
+	Photo.findByIdAndRemove(req.params.id, (err, uploadedPhoto) => {
+		res.redirect('/photos')
+	})
 })
+
+module.exports = router
+
+
+
+

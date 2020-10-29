@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>New Form</title>
-  </head>
-  <body>
-    <p>Submit a photo for upload:</p>
-    <form action='/photos' method='post' >
-      label for
-      </form>
+<%- include('./partials/header.ejs') %>
 
-  </body>
-</html>
+<h1> New Photo page</h1>
+<p>Upload a new photo:</p>
+<form action="upload" method="POST" enctype="multipart/form-data">
+  <label for="file_photo">Photo:</label>
+  <input type="file" name="file_photo" id="file_photo"><br>
+  <input type="submit" value="Upload">
+</form>
+
+<%- include('./partials/footer.ejs') %>

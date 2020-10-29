@@ -1,17 +1,17 @@
-<!DOCTYPE html>
-<head>
-  <title>Showtows</title>
-  <link href='styles.css' rel='stylesheet'>
-</head>
-<body>
-  <h1>Showtohs Index page</h1>
-  <h3>Showtohs:</h3>  
+<%- include('./partials/header.ejs') %>
+
+  <h1>PhotoWall Index page</h1>
+  <h3>PhotoWall:</h3>  
   <ul>
     <% for (let i = 0; i < photoList.length; i ++) { %>
       <li>
-        <a href="/photos/<%=i%>"> <%= photoList[i].img %></a>
+        <a href="/photos/<%=photoList[i].id; %>">
+           <%= photoList[i] %></a>
+           <form action="/photos/<%=photoList[i].id%>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE"/>
+          </form>
       </li> 
       <% } %>
   </ul>
-</body>
-</html>
+
+<%- include('./partials/footer.ejs') %>
