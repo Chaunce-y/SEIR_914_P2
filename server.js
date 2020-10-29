@@ -30,35 +30,6 @@ const photosController = require('./Controllers/photos.js')
 app.use('/photos', photosController)
 
 
-
-// Middleware 
-// app.use((req, res, next) => {
-	// console.log('I run for all routes');
-	// next();
-// });
-
-//Routes:
-// to index
-// app.get('/photos', (req, res) => {
-	// res.render('index.ejs',
-		// {
-		// photoList: photos
-		// res.send(photos)
-		// }
-	// )
-// })
-
-// show photo
-// app.get('/photos/:indexOfPhotosArray', (req, res) => {
-	// const photo = photos[req.params.indexOfPhotosArray]
-// 
-	// res.render('show.ejs',
-		// { 
-			// photo: photos[req.params.indexOfPhotosArray]
-		// }
-	// )
-// })
-	
 //seed route
 app.get('/photos/seed', (req, res) => {
 	Photo.create([
@@ -77,24 +48,6 @@ app.get('/photos/seed', (req, res) => {
 		res.redirect('/photos')
 	})
 })
-
-// new photo
-// app.get('/photos/new', (req, res) => {
-	// res.render('/new.ejs', {photo})
-// })
-
-// post photo
-// app.post('/photos', (req, res) => {
-	// console.log('Create route accessed!')
-    // console.log('Req.body is: ', req.body)
-	// console.log(req.body)
-	// res.send(req.body)
-// 
-// })
-// delete photo
-// app.delete('/photos/:id', (req, res) => {
-	// res.send('deleting..')
-// })
 
 app.listen(PORT, () => {
 	console.log(`listening on port ${PORT}`)
