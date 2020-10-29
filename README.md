@@ -7,7 +7,6 @@ This project consists of a CRUD app used to upload images to a database for view
 
 * Node.js
 * Express.js
-* Multer
 * Mongoose
 * MongoDB
 * EJS
