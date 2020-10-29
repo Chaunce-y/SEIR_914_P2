@@ -5,6 +5,7 @@
   <ul>
     <% for (let i = 0; i < photoList.length; i ++) { %>
       <li>
+        <%= photoList[i].user%>
         <a href="/photos/<%=photoList[i].id; %>/show">
            <img height="80%" width="80%" src="<%= photoList[i].url %>"/>
           </a>

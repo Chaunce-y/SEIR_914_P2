@@ -2,11 +2,13 @@
 
   <h1>Welcome to PhotoWall Show Page!!</h1>
   <h3>PhotoWall</h3>
-  <p>Here is a cool picture: 
+  <p>Here is a cool picture posted by <%=photoList.user %>: 
   </p>
   <!-- <img src="https://lh3.googleusercontent.com/pw/ACtC-3d4uJAyq61DA9x4oifh02OQnQI3QMnUmjGXqTM6aZJ4G0xuYQAFozwEbMAT_6Uk2cJWzIxsxiiAIh7L6F2LeDOITY3DZXaCS_Xln48IPXIvOvizd4p0n1uPbnzvYkCd9mq1nMDnKvmSN-Bp4KfZDo_OJA=w2202-h1238-no?authuser=1"> -->
   <img src='<%=photoList.url%>'/>
   <a href="/photos/<%=photoList.id%>/edit">Edit</a>
+
+
 
   <%- include('./partials/footer.ejs') %>
  
