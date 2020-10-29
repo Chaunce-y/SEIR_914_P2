@@ -1,15 +1,16 @@
 <%- include('./partials/header.ejs') %>
 
-        <h1>Edit Photo Page</h1>
+        <h1>Made a mistake?</h1>
+        <h3>Edit your upload!</h3>
         <form action="/photos/<%=photoList.id%>?_method=PUT" 
 method="POST">
 <fieldset>
     <label for="user">User:</label>
-    <input type="text" name="user" value="<%photoList.user%>"/>
+    <input type="text" name="user" value="<%=photoList.user%>"/>
 </fieldset>
 <fieldset>
     <label for="url">URL:</label>
-    <input type="text" name="url" value="<%photoList.url%>"/>
+    <input type="text" name="url" value="<%=photoList.url%>"/>
 </fieldset>
             <input type="submit" name="" value="Submit 
 Changes"/>

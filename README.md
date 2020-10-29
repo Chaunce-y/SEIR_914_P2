@@ -11,4 +11,6 @@ This project consists of a CRUD app used to upload images to a database for view
 * MongoDB
 * EJS
 
-The app is also hosted on Heroku.
+### Unsolved Problems:
+
+I wasn't able to get my CSS styling to take effect on the page, and I was also unable to get connected to Atlas DB to populate my cloud database and had to present my project from local. I plan on resolving this in the future, as well as adding some to the app and making it more interactive.

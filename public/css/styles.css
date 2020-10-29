@@ -1,0 +1,14 @@
+body {
+  background-color: darkblue;
+  display: block;;
+  color: white;
+  text-align: center
+}
+
+h1 {
+  font-size: 48px
+}
+
+img {
+  max-width : 80%
+}

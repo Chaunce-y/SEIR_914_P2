@@ -1,19 +1,16 @@
 <%- include('./partials/header.ejs') %>
 
-  <h1>PhotoWall Index page</h1>
-  <h3>PhotoWall:</h3>  
-  <ul>
+<h1>Welcome to the PhotoWall!!</h1>
+<h2>Post a pic!</h2> 
+<a href="/photos/new">Upload New Photo</a>
+<h3>Photos other users have posted:</h3> 
+  <div class="img-fluid">
     <% for (let i = 0; i < photoList.length; i ++) { %>
-      <li>
+      <div>
         <%= photoList[i].user%>
         <a href="/photos/<%=photoList[i].id; %>/show">
            <img height="80%" width="80%" src="<%= photoList[i].url %>"/>
           </a>
-           <form action="/photos/<%=photoList[i].id%>?_method=DELETE" method="POST">
-            <input type="submit" value="DELETE"/>
-          </form>
-      </li> 
+        </div> 
       <% } %>
-  </ul>
-
-  <a href="/photos/new">Upload New Photo</a>
+      </div>
