@@ -26,12 +26,9 @@ mongoose.connect(mongodbURI, { useNewUrlParser: true, useUnifiedTopology: true})
 
 //controllers
 //import the controller
-const photosController = require('./controllers/photos.js')
+const photosController = require('./Controllers/photos.js')
 app.use('/photos', photosController)
 
-// include the model
-
-const Photo = require('./models/photoModel.js')
 
 
 // Middleware 
