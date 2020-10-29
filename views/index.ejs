@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+  <title>Showtows</title>
+  <link href='styles.css' rel='stylesheet'>
+</head>
+<body>
+  <h1>Showtohs Index page</h1>
+  <h3>Showtohs:</h3>  
+  <ul>
+    <% for (let i = 0; i < photoList.length; i ++) { %>
+      <li>
+        <a href="/photos/<%=i%>"> <%= photoList[i].img %></a>
+      </li> 
+      <% } %>
+  </ul>
+</body>
+</html>
